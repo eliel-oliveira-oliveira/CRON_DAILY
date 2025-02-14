@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eliel.dev.br</title>
+    <link rel="stylesheet" href="timedaily_styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>TimeLoop Daily</h1>
+    
+    <div class="settings">
+        <label for="turnTime">Tempo por turno (em segundos):</label>
+        <br><br>
+        <input type="number" id="turnTime" min="1" placeholder="60" value="60">
+        <br><br>
+    </div>
+    
+    <div class="team-input">
+        <textarea id="teamMembers" placeholder="Digite os nomes da equipe, cada linha com um integrante"></textarea>
+        <button onclick="shuffleTeam()">Sortear Ordem</button>
+    </div>
+    
+    <div class="sorted-list" id="sortedList"></div>
+    <div id="currentSpeaker" class="current-speaker"></div>
+    <div class="timer-controls">
+        <div class="main-controls">
+            <button id="startTimer" onclick="startTurn()" disabled>Iniciar</button>
+            <button id="stopTimer" onclick="stopTurn()" disabled>Parar</button>
+        </div>
+        <div class="sub-controls">
+            <button id="pauseTimer" onclick="pauseTurn()" disabled>Pausar</button>
+            <button id="resumeTimer" onclick="resumeTurn()" disabled>Continuar</button>
+            <button id="nextTurn" onclick="advanceTurn()" disabled>Avançar</button>
+        </div>
+        <div id="timerDisplay">01:30</div>
+    </div>
+    <!-- Nova seção para a estrutura da reunião -->
+    <div class="meeting-structure">
+        <h2>Estrutura da Reunião</h2>
+        <p>Cada membro da equipe deve responder a três perguntas principais:</p>
+        <ol>
+            <li><strong>O que você fez ontem?</strong><br>Compartilhar o progresso feito desde a última daily.</li>
+            <li><strong>O que você planeja fazer hoje?</strong><br>Informar o que pretende realizar até a próxima daily.</li>
+            <li><strong>Há algum impedimento no seu caminho?</strong><br>Identificar obstáculos que possam estar atrapalhando o progresso.</li>
+        </ol>
+    </div>
+</div>
+<script src="timedaily_script.js"></script>
+</body>
+</html>
