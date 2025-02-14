@@ -133,14 +133,14 @@ function resetControls() {
 }
 function playPreparationSound() {
     return new Promise((resolve, reject) => {
-        const preparationSound = new Audio('timedaily_preparacao.mp3');
+        const preparationSound = new Audio('src/timedaily_preparacao.mp3');
         preparationSound.onended = resolve;
         preparationSound.onerror = reject;
         preparationSound.play().catch(reject);
     });
 }
 function playBeep() {
-    const beep = new Audio('timedaily_beep.mp3');
+    const beep = new Audio('src/timedaily_beep.mp3');
     beep.play().catch(error => {
         console.error("Erro ao reproduzir som de bipe:", error);
     });
