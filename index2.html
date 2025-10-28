@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dados do CSV - Norte, Nordeste e MG</title>
+  <style>
+    body {
+      font-family: monospace;
+      background-color: #f9f9f9;
+      margin: 2rem;
+      color: #333;
+    }
+    h2 {
+      font-family: sans-serif;
+    }
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      overflow-x: auto;
+      max-height: 90vh;
+    }
+  </style>
+</head>
+<body>
+  <h2>Conteúdo do arquivo CSV</h2>
+  <pre id="csvDisplay">Carregando...</pre>
+
+  <script>
+    async function carregarCSV() {
+      try {
+        const response = await fetch('tbl_cep_filtrado_norte_nordeste_mg.csv');
+        if (!response.ok) throw new Error('Erro ao carregar CSV');
+        const texto = await response.text();
+        document.getElementById('csvDisplay').textContent = texto;
+      } catch (erro) {
+        document.getElementById('csvDisplay').textContent = 'Erro ao carregar o arquivo CSV.';
+        console.error(erro);
+      }
+    }
+    carregarCSV();
+  </script>
+</body>
+</html>
